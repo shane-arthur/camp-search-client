@@ -6,6 +6,7 @@ import {
 
 import * as fromSearch from './search.reducer';
 import * as fromActivities from './activities.reducer';
+import * as fromCamp from './camps.reducer';
 
 import { Activity } from '../models/activities.interface';
 
@@ -13,11 +14,13 @@ import { Activity } from '../models/activities.interface';
 export interface State {
   search: fromSearch.SearchState;
   activity: fromActivities.ActivityState;
+  camp: fromCamp.CampState
 }
 
 export const reducers: ActionReducerMap<State> = {
   search: fromSearch.reducer,
-  activity: fromActivities.reducer
+  activity: fromActivities.reducer,
+  camp: fromCamp.reducer
 };
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {

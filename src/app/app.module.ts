@@ -53,6 +53,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CampSearchComponent } from './components/camp-search/camp-search.component';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { MenuListItemComponent } from './components/menu-list-item/menu-list-item.component';
+import { CampCardComponent} from './components/camp-card/camp-card.component';
 // effects
 import { SearchEffects } from './effects/search.effects';
 import { ActivitiesEffects } from './effects/activities.effects';
@@ -60,6 +61,7 @@ import { ActivitiesEffects } from './effects/activities.effects';
 // reducers
 import * as searchReducer from './reducers/search.reducer';
 import * as activityReducer from './reducers/activities.reducer';
+import * as campReducer from './reducers/camps.reducer';
 
 // services
 import { NavService } from './services/navigation.service';
@@ -119,7 +121,9 @@ export class MaterialModule { }
     AppComponent,
     HeaderComponent,
     CampSearchComponent,
-    TopNavComponent, MenuListItemComponent
+    TopNavComponent, 
+    MenuListItemComponent,
+    CampCardComponent
   ],
   imports: [
     BrowserModule,
@@ -135,6 +139,9 @@ export class MaterialModule { }
     }),
     StoreModule.forFeature('activity', {
       activity: activityReducer.reducer
+    }),
+    StoreModule.forFeature('camps', {
+      camps: campReducer.reducer
     }),
     EffectsModule.forRoot([SearchEffects, ActivitiesEffects]),
   ],

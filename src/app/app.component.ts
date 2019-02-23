@@ -6,6 +6,7 @@ import { NavService } from './services/navigation.service';
 import { Activity } from './models/activities.interface';
 import * as activityActions from './actions/activities.actions';
 import * as reducer from './reducers';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ export class AppComponent {
   activities = [];
   showSubmenu: boolean = false;
   expanded = {};
-  constructor(private store: Store<reducer.State>, public navService: NavService) { }
+  constructor(private store: Store<reducer.State>, public navService: NavService, private router: Router) { }
   ngOnInit() {
     this.loadActivities();
   }
@@ -65,6 +66,11 @@ export class AppComponent {
 
   ngAfterViewInit() {
     this.navService.appDrawer = this.appDrawer;
+  }
+
+  navigateToDetailsPage(activity){
+    const url = `/camp/${activity.id}`;
+    this.router.navigateByUrl(url);
   }
 
 
