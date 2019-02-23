@@ -1,0 +1,75 @@
+<form [formGroup]="formGroup">
+  <div class="hdca-gheader">
+    <div class="hdca-gheader__top-nav">
+      <ul class="hdca-gheader__top-nav-list">
+
+        <li class="hdca-gheader__top-nav-list-item">
+          <a [routerLink]="['/test']" class="hdca-gheader__top-nav-list-item-text">
+            Camp search </a></li>
+
+        <li class="hdca-gheader__top-nav-list-item"><a class="hdca-gheader__top-nav-list-item-text">
+            Activites </a></li>
+        <li class="hdca-gheader__top-nav-list-item"><a class="hdca-gheader__top-nav-list-item-text">
+            Sports </a></li>
+      </ul>
+    </div>
+    <div class="hdca-gheader__content">
+      <section class="hdca-gheader__content-logo">
+        <a class="hdca-gheader__content-logo-content">
+          <img alt="The Camp Search" class="hdca-gheader__content-logo-content-image" src="/favicon.ico">
+        </a>
+      </section>
+      <section class="hdca-gheader__content-logo">
+        <a class="hdca-gheader__content-logo-content">
+          <img alt="The Camp Search" class="hdca-gheader__content-logo-content-image" src="/favicon.ico">
+        </a>
+      </section>
+      <div class="hdca-gheader__content-divider"></div>
+      <div class="hdca-gheader__content-search">
+        <div class="hdca-form-field">
+          <div class="hdca-form-field__label"><label class="hdca-form-field__label-text hdca-form-field__label-text--is-hidden"
+              for="gheader-autosuggest-input">Input Field</label></div>
+          <div class="hdca-form-field__container">
+            <div class="hdca-input-group hdca-input-group--has-action-button hdca-input-group--header-search">
+              <div class="hdca-input-wrapper">
+
+                <input formControlName="inputSearch" autofocus="" class="hdca-input hdca-input--has-helper-action-button ng-pristine ng-valid ng-touched"
+                  id="gheader-autosuggest-input" name="q" type="text" placeholder="Search Camps, Activities">
+
+
+                <button (click)="onClickClear()" aria-controls="gheader-autosuggest-input" aria-describedby="description-488"
+                  class="hdca-input-wrapper__helper-action-button" id="helper-action-38" role="button" title="Clear Input"
+                  type="button">
+
+                  <svg aria-hidden="true" class="hdca-input-wrapper__helper-action-button-icon">
+                    <use xlink:href="/assets/core-assets/icons/global.svg#close"></use>
+                  </svg>
+
+                  <span class="hdca-input-wrapper__helper-action-button-assistive-text" id="description-488">Clear
+                    Input</span>
+                </button>
+
+              </div><button (click)="onClickSearch()" aria-describedby="description-489" class="hdca-input-group__action-button"
+                id="action-71" role="button" title="Search" type="submit">
+                <svg aria-hidden="true" class="hdca-input-group__action-button-icon">
+                  <use xlink:href="/assets/core-assets/icons/global.svg#search"></use>
+                </svg>
+
+                <span class="hdca-input-group__action-button-assistive-text" id="description-489">Search</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="hdca-scarf">
+  <div class="hdca-scarf__message">
+    <span class="hdca-scarf__message-icon-wrapper">
+      <svg aria-hidden="true" class="hdca-scarf__message-icon">
+        <use _ngcontent-c1="" xlink:href="#clock"></use>
+      </svg>
+    </span>
+    <span class="hdca-scarf__message-label"> CAMP SEARCH ACTIVITIES </span>
+  </div>
+</div>
