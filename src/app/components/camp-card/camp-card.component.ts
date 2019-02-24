@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./camp-card.component.scss']
 })
 export class CampCardComponent implements OnInit  {
-
+  showWebsite = false;
   constructor() { }
 
   ngOnInit(){
+  }
+
+  mouseenter(){
+    this.showWebsite = true;
+  }
+
+  mouseleave(){
+    this.showWebsite = false;
   }
 
 }
