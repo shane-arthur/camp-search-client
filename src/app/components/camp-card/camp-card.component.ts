@@ -27,7 +27,6 @@ export class CampCardComponent implements OnInit  {
     ).subscribe();
 
     this.campDetails$ = this.store.select(reducers.selectProductUnlocalizedById(this.id));
-    this.campDetails$.subscribe(console.log);
 
   }
 
@@ -38,6 +37,11 @@ export class CampCardComponent implements OnInit  {
 
   mouseleave(){
     this.showWebsite = false;
+  }
+
+  goToWebsite(details){
+    const url = `http://${details['_source']['website']}`
+    window.open(url);
   }
 
 }

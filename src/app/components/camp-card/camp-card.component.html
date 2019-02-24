@@ -9,8 +9,8 @@
             <div class="address">{{campDetails['_source']['address_line1']}}, {{campDetails['_source']['city']}},
                 {{campDetails['_source']['province']}}</div>
             <div *ngIf="showWebsite" class="website-container">
-                <label>Website: </label> <a
-                    href="{{campDetails['_source']['website']}}">{{campDetails['_source']['website']}}</a>
+                <label>Website: </label> <a (click)="goToWebsite(campDetails)"
+                    href="javascript:void(0)">{{campDetails['_source']['website']}}</a>
                 <div *ngIf="campDetails['_source']['phone']" class="phone-container" style="display:block">
                     <label>Phone: </label> <span style="color: orange"> {{campDetails['_source']['phone']}}</span>
                 </div>
