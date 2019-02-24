@@ -15,7 +15,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 export interface State {
   search: fromSearch.SearchState;
   activity: fromActivities.ActivityState;
-  camps: fromCamp.CampState
+  camps: fromCamp.CampState;
 }
 
 export const reducers: ActionReducerMap<State> = {

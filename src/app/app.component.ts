@@ -1,26 +1,21 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromActivities from './../app/reducers/activities.reducer';
 import { Observable } from 'rxjs';
-import { NavService } from './services/navigation.service';
 import { Activity } from './models/activities.interface';
 import * as activityActions from './actions/activities.actions';
 import * as reducer from './reducers';
 import { Router } from '@angular/router';
-import * as campActions from './actions/camp.actions';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  @ViewChild('appDrawer') appDrawer: ElementRef;
+export class AppComponent implements OnInit {
   activities$: Observable<Activity[]>;
-  activities = [];
-  showSubmenu: boolean = false;
+  showSubmenu = false;
   expanded = {};
-  constructor(private store: Store<reducer.State>, public navService: NavService, private router: Router) { }
+  constructor(private store: Store<reducer.State>, private router: Router) { }
   ngOnInit() {
     this.loadActivities();
   }
@@ -28,22 +23,17 @@ export class AppComponent {
   loadActivities() {
     this.store.dispatch(new activityActions.LoadActivities());
     this.activities$ = this.store.select(reducer.getActivities);
-    this.activities$.subscribe(response => {
-      this.activities = response;
-    });
   }
 
   selectActivity(activity) {
     if (this.expanded[activity.id]) {
       const expanded = !this.expanded[activity.id];
-      this.expanded = { ...this.expanded, [activity.id]: expanded }
-    }
-    else {
+      this.expanded = { ...this.expanded, [activity.id]: expanded };
+    } else {
       if (this.expanded[activity.id] === undefined) {
         this.expanded[activity.id] = true;
-        this.store.dispatch(new activityActions.LoadCampsPerActivity(activity.id))
-      }
-      else {
+        this.store.dispatch(new activityActions.LoadCampsPerActivity(activity.id));
+      } else {
         this.expanded[activity.id] = true;
       }
     }
@@ -64,15 +54,8 @@ export class AppComponent {
     return { rotated };
   }
 
-
-  ngAfterViewInit() {
-    this.navService.appDrawer = this.appDrawer;
-  }
-
-  navigateToDetailsPage(id){
+  navigateToDetailsPage(id) {
     const url = `/camp/${id}`;
     this.router.navigateByUrl(url);
   }
-
-
 }

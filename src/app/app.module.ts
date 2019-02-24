@@ -51,8 +51,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // components
 import { HeaderComponent } from './components/header/header.component';
 import { CampSearchComponent } from './components/camp-search/camp-search.component';
-import { TopNavComponent } from './components/top-nav/top-nav.component';
-import { MenuListItemComponent } from './components/menu-list-item/menu-list-item.component';
 import { CampCardComponent} from './components/camp-card/camp-card.component';
 // effects
 import { SearchEffects } from './effects/search.effects';
@@ -64,7 +62,6 @@ import * as activityReducer from './reducers/activities.reducer';
 import * as campReducer from './reducers/camps.reducer';
 
 // services
-import { NavService } from './services/navigation.service';
 
 // module logic deps
 import { Store } from '@ngrx/store';
@@ -121,8 +118,6 @@ export class MaterialModule { }
     AppComponent,
     HeaderComponent,
     CampSearchComponent,
-    TopNavComponent, 
-    MenuListItemComponent,
     CampCardComponent
   ],
   imports: [
@@ -145,7 +140,7 @@ export class MaterialModule { }
     }),
     EffectsModule.forRoot([SearchEffects, ActivitiesEffects]),
   ],
-  providers: [Store, Actions, NavService],
+  providers: [Store, Actions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

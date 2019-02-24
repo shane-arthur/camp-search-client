@@ -19,7 +19,7 @@ export class CampCardComponent implements OnInit  {
   id;
   constructor(private route: ActivatedRoute, private store: Store<State>) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.route.params.pipe(
       pluck('id'),
       tap(id => this.store.dispatch(new campActions.LoadCampDetails(id))),
@@ -31,16 +31,16 @@ export class CampCardComponent implements OnInit  {
   }
 
 
-  mouseenter(){
+  mouseenter() {
     this.showWebsite = true;
   }
 
-  mouseleave(){
+  mouseleave() {
     this.showWebsite = false;
   }
 
-  goToWebsite(details){
-    const url = `http://${details['_source']['website']}`
+  goToWebsite(details) {
+    const url = `http://${details['_source']['website']}`;
     window.open(url);
   }
 

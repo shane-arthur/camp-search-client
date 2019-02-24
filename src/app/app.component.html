@@ -1,26 +1,28 @@
 <!-- header -->
 <app-header></app-header>
 <mat-sidenav-container autosize>
-        <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
-                <mat-nav-list>
-                    <ng-container *ngFor="let activity of activities">
+    <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
+        <mat-nav-list>
+            <ng-container *ngIf="activities$ | async as activities">
+                <ng-container *ngFor="let activity of activities">
                     <mat-list-item (click)="selectActivity(activity)" class="parent">
                         <span class="full-width">{{activity.name}}</span>
                         <mat-icon mat-list-icon>motorcycle</mat-icon>
                         <mat-icon class="menu-button" [ngClass]="isRotated(activity)">expand_more</mat-icon>
                     </mat-list-item>
-                   
+
                     <div [ngStyle]="isShown(activity)" class="submenu" [ngClass]="isExpanded(activity)">
                         <ng-container *ngFor="let camp of activity.camps">
-                                <mat-list-item (click)="navigateToDetailsPage(camp.id)" class="child">
-                                        <span class="full-width">{{camp.campName}}</span>
-                                        <mat-icon mat-list-icon>home</mat-icon>
-                                        <mat-icon class="menu-button" [ngClass]="isRotated(activity)">arrow_left</mat-icon>
-                                    </mat-list-item>
+                            <mat-list-item (click)="navigateToDetailsPage(camp.id)" class="child">
+                                <span class="full-width">{{camp.campName}}</span>
+                                <mat-icon mat-list-icon>home</mat-icon>
+                                <mat-icon class="menu-button" [ngClass]="isRotated(activity)">arrow_left</mat-icon>
+                            </mat-list-item>
                         </ng-container>
                     </div>
                 </ng-container>
-                </mat-nav-list>
-            </mat-sidenav>
-            <router-outlet></router-outlet>
-      </mat-sidenav-container>
+            </ng-container>
+        </mat-nav-list>
+    </mat-sidenav>
+    <router-outlet></router-outlet>
+</mat-sidenav-container>

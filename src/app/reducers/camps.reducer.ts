@@ -15,7 +15,7 @@ export function reducer(state = initialState, action: campActions.Actions): Camp
     switch (action.type) {
 
         case campActions.LOAD_CAMP_DETAILS_SUCESS: {
-            return {...state, [action.id]: action.campDetails}
+            return {...state, [action.id]: action.campDetails};
         }
 
         default: {

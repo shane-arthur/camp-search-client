@@ -20,7 +20,7 @@ export function reducer(state = initialState, action: activityActions.Actions): 
         }
 
         case activityActions.LOAD_CAMPS_PER_ACTIVITY_SUCESS: {
-            const activityIndex = state.activities.findIndex(activity => activity.id === action.activityId);
+            const activityIndex = state.activities.findIndex(activityDetails => activityDetails.id === action.activityId);
             const activity = state.activities[activityIndex];
             activity.camps = <any>action.camps.data;
 
