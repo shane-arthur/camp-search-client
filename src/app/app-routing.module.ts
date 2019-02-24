@@ -15,7 +15,6 @@ const appRoutes: Routes = [
     path: 'camp/:id',
     component: CampCardComponent
   },
-  { path: '', redirectTo: '/camp-search', pathMatch: 'full' },
   { path: '*', redirectTo: '/camp-search', pathMatch: 'full' }
 ];
 

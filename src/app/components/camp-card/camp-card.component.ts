@@ -26,8 +26,6 @@ export class CampCardComponent implements OnInit  {
       tap(id => this.campDetails$ = this.store.select(reducers.selectProductUnlocalizedById(id)))
     ).subscribe();
 
-    this.campDetails$ = this.store.select(reducers.selectProductUnlocalizedById(this.id));
-
   }
 
 

@@ -44,8 +44,11 @@ import {
   MatSnackBarModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatTableModule
 } from '@angular/material';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // components
@@ -60,6 +63,9 @@ import { ActivitiesEffects } from './effects/activities.effects';
 import * as searchReducer from './reducers/search.reducer';
 import * as activityReducer from './reducers/activities.reducer';
 import * as campReducer from './reducers/camps.reducer';
+
+// services
+import { HttpHelperService } from './services/http-helper.service';
 
 // services
 
@@ -110,6 +116,9 @@ import { Store } from '@ngrx/store';
     MatToolbarModule,
     MatTooltipModule,
     MatNativeDateModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }
@@ -140,7 +149,7 @@ export class MaterialModule { }
     }),
     EffectsModule.forRoot([SearchEffects, ActivitiesEffects]),
   ],
-  providers: [Store, Actions],
+  providers: [Store, Actions, HttpHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

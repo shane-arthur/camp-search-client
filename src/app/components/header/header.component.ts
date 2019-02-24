@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { State } from './../../reducers';
 import * as searchActions from './../../actions/search.actions';
 import { SearchRequest } from './../../models/search.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ import { SearchRequest } from './../../models/search.interface';
 export class HeaderComponent implements OnInit {
   formGroup: FormGroup;
   searchRequest: SearchRequest;
-  constructor(private store: Store<State>, private formBuilder: FormBuilder) { }
+  constructor(private store: Store<State>, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.formGroup = this.initForm();
@@ -32,10 +33,16 @@ export class HeaderComponent implements OnInit {
       this.searchRequest = {} as SearchRequest;
       this.searchRequest.searchTerm = value;
       this.store.dispatch(new searchActions.LoadSearchResults(this.searchRequest));
+      this.navigateToSearch();
     }
   }
   public onClickClear() {
     this.formGroup.controls['inputSearch'].setValue(null);
+  }
+
+  navigateToSearch() {
+    const url = `/camp-search`;
+    this.router.navigateByUrl(url);
   }
 
 }

@@ -10,6 +10,7 @@ import * as fromCamp from './camps.reducer';
 
 import { Activity } from '../models/activities.interface';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { SearchDetails } from '../models/search.interface';
 
 // add in any global state items we want here
 export interface State {
@@ -29,7 +30,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
 }
 
 export const metaReducers: MetaReducer<State>[] = [localStorageSyncReducer];
-export const getSearch = (state: State): fromSearch.SearchState => state.search;
+export const getSearch = (state: any): SearchDetails => state.search.search.searchDetails;
 export const getActivities = (state: any): Activity[] => state.activity.activity.activities;
 
 

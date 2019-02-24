@@ -1,8 +1,35 @@
-<div>
+<div *ngIf="!dataSource">
+    <h1 style="margin: 0 auto;padding:1rem">Camp details search is in progress.......</h1>
+</div>
+<div *ngIf="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
 
+        <!-- id Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Camp Id </th>
+            <td mat-cell *matCellDef="let element"> {{element['_id']}} </td>
+        </ng-container>
 
+        <!-- campName Column -->
+        <ng-container matColumnDef="campname">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Camp Name </th>
+            <td mat-cell *matCellDef="let element"> {{element['_source'].campname}} </td>
+        </ng-container>
 
-Shane 
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element['_source']['@timestamp']}}</td>
+        </ng-container>
 
+        <!-- City Column -->
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+            <td mat-cell *matCellDef="let element"> {{element['_source'].city}} </td>
+        </ng-container>
 
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
