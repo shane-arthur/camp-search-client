@@ -15,7 +15,7 @@ export class LoadCampDetails implements Action {
 
 export class LoadCampDetailsSucess implements Action {
     readonly type = LOAD_CAMP_DETAILS_SUCESS;
-    constructor() { }
+    constructor(public id: string, public campDetails: any) { }
 }
 
 export class LoadCampDetailsError implements Action {

@@ -7,6 +7,7 @@ import { Activity } from './models/activities.interface';
 import * as activityActions from './actions/activities.actions';
 import * as reducer from './reducers';
 import { Router } from '@angular/router';
+import * as campActions from './actions/camp.actions';
 
 @Component({
   selector: 'app-root',
@@ -68,8 +69,8 @@ export class AppComponent {
     this.navService.appDrawer = this.appDrawer;
   }
 
-  navigateToDetailsPage(activity){
-    const url = `/camp/${activity.id}`;
+  navigateToDetailsPage(id){
+    const url = `/camp/${id}`;
     this.router.navigateByUrl(url);
   }
 

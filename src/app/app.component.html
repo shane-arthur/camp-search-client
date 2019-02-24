@@ -12,7 +12,7 @@
                    
                     <div [ngStyle]="isShown(activity)" class="submenu" [ngClass]="isExpanded(activity)">
                         <ng-container *ngFor="let camp of activity.camps">
-                                <mat-list-item (click)="navigateToDetailsPage(activity)" class="child">
+                                <mat-list-item (click)="navigateToDetailsPage(camp.id)" class="child">
                                         <span class="full-width">{{camp.campName}}</span>
                                         <mat-icon mat-list-icon>home</mat-icon>
                                         <mat-icon class="menu-button" [ngClass]="isRotated(activity)">arrow_left</mat-icon>

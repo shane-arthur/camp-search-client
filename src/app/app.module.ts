@@ -140,7 +140,7 @@ export class MaterialModule { }
     StoreModule.forFeature('activity', {
       activity: activityReducer.reducer
     }),
-    StoreModule.forFeature('camps', {
+    StoreModule.forFeature('camp', {
       camps: campReducer.reducer
     }),
     EffectsModule.forRoot([SearchEffects, ActivitiesEffects]),

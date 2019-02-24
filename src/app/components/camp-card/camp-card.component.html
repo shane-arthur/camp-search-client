@@ -1,23 +1,26 @@
-<mat-card (mouseenter)="mouseenter()"  (mouseleave)="mouseleave()">
-    <mat-card-content>
-        <img mat-card-image src="assets/core-assets/images/background.jpg" alt="Photo of a Shiba Inu">
-        <h1> Camp Name</h1>
-        <div class="line"></div>
-        <div class="address">317 Dundas West, Toronto, Ontario</div>
-        <div *ngIf="showWebsite" class= "website-container">
-           <label>Website: </label> <a href="www.google.com">www.fucker.com</a>
-           <div class="phone-container" style="display:block">
-           <label>Phone: </label> <span style="color: orange">647-292-1334</span>
-        </div>
-        </div>
-        <div class="footer-container">
-           
-            <mat-icon>calendar_today</mat-icon>
-            <span> 10/10/2019</span>
+<ng-container *ngIf="campDetails$ | async as campDetails">
+    <mat-card (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+        <mat-card-content>
+            <img mat-card-image src="assets/core-assets/images/background.jpg" alt="Photo of a Shiba Inu">
+            <h1> {{campDetails['_source'].campname}}</h1>
+            <div class="line"></div>
+            <div class="address">{{campDetails['_source']['address_line1']}}, {{campDetails['_source']['city']}},
+                {{campDetails['_source']['province']}}</div>
+            <div *ngIf="showWebsite" class="website-container">
+                <label>Website: </label> <a href="{{campDetails['_source']['website']}}">{{campDetails['_source']['website']}}</a>
+                <div *ngIf="campDetails['_source']['phone']" class="phone-container" style="display:block">
+                    <label>Phone: </label> <span style="color: orange"> {{campDetails['_source']['phone']}}</span>
+                </div>
+            </div>
+            <div class="footer-container">
 
-            <mat-icon>email</mat-icon>
-            <span>Shane.Arthur@gmail.com</span>
+                <mat-icon>calendar_today</mat-icon>
+                <span> {{campDetails['_source']['@timestamp'].split('T')[0]}}</span>
 
-        </div>
-    </mat-card-content>
-</mat-card>
+                <mat-icon>email</mat-icon>
+                <span>{{campDetails['_source']['email']}}</span>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+</ng-container>
