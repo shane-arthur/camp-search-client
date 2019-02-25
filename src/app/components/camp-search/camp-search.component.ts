@@ -2,9 +2,10 @@ import { Router } from '@angular/router';
 import { Component, OnInit, AfterViewInit, ViewChild, Input } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { SearchDetails } from './../../models/search.interface';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as reducer from './../../reducers';
+import { ICampData } from 'src/app/models/camp.interface';
 
 @Component({
   selector: 'app-camp-search',
@@ -16,10 +17,10 @@ export class CampSearchComponent implements OnInit, AfterViewInit {
   private sort: MatSort;
   @Input() activities = [];
   searchResults$: Observable<SearchDetails>;
-  dataSubject = new BehaviorSubject<Element[]>([]);
+  // sortedData: any;
 
   constructor(private store: Store<reducer.State>, private router: Router) { }
-  displayedColumns: string[] = ['id', 'campname', 'date', 'city'];
+  displayedColumns: string[] = ['campname', 'date', 'city'];
   dataSource: any;
 
   @ViewChild(MatSort) set matSort(ms: MatSort) {
@@ -44,8 +45,8 @@ export class CampSearchComponent implements OnInit, AfterViewInit {
     this.searchResults$.subscribe(response => {
       if (!!response && !!response.data) {
         this.activities = response.data;
+        // this.sortedData = this.activities.slice();
         this.dataSource = new MatTableDataSource(this.activities);
-        this.dataSource.paginator = this.paginator;
       }
     });
   }
@@ -56,13 +57,32 @@ export class CampSearchComponent implements OnInit, AfterViewInit {
     }
   }
 
-  selectRow(row) {
-    console.log('row' , row);
-    if (!!row._source && row._source.active === 'Y') {
-      const url = `/camp/${row._source.idcampdetails}`;
+  goToCampDetails(camp: ICampData) {
+    if (!!camp._source && camp._source.active === 'Y') {
+      const url = `/camp/${camp._source.idcampdetails}`;
       this.router.navigateByUrl(url);
-    } else {
-      alert ('This camp is inactive');
     }
   }
+
+  // sortData(sort: Sort) {
+  //   const data = this.activities.slice();
+  //   if (!sort.active || sort.direction === '') {
+  //     this.sortedData = data;
+  //     return;
+  //   }
+
+  //   this.sortedData = data.sort((a, b) => {
+  //     const isAsc = sort.direction === 'asc';
+  //     switch (sort.active) {
+  //       case 'campname': return this.compare(a.campname, b.campname, isAsc);
+  //       case 'date': return this.compare(+a.date, +b.date, isAsc);
+  //       case 'city': return this.compare(+a.city, +b.city, isAsc);
+  //       default: return 0;
+  //     }
+  //   });
+  // }
+
+  // compare(a, b, isAsc) {
+  //   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  // }
 }

@@ -41,7 +41,7 @@ export class SearchEffects {
         .get(apiUrls.BASE_URL + apiUrls.GET_CAMP_DETAILS_PER_ID(action.campId))
         .pipe(
           map((results: any) => {
-            return new campActions.LoadCampDetailsSucess(action.campId, results.data[0])
+            return new campActions.LoadCampDetailsSucess(action.campId, results.data[0]);
           }),
           catchError(err => {
             return of(new LoadSearchResultsError());

@@ -20,3 +20,13 @@ a {
   text-decoration-color: mat-color($app-primary);
   color: mat-color($app-primary);
 }
+
+.mat-header-cell {
+  font-size: 1.25rem;
+}
+
+.mat-cell,
+.mat-select-value,
+.mat-paginator-container {
+  font-size: 1rem;
+}
