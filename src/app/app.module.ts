@@ -46,8 +46,8 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatTableModule,
-  MatSortModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatSortModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -55,6 +55,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { CampSearchComponent } from './components/camp-search/camp-search.component';
 import { CampCardComponent} from './components/camp-card/camp-card.component';
+
+// containers
+import { CampSearchContainerComponent } from './containers/camp-search/camp-search.container';
+
 // effects
 import { SearchEffects } from './effects/search.effects';
 import { ActivitiesEffects } from './effects/activities.effects';
@@ -127,7 +131,8 @@ export class MaterialModule { }
     AppComponent,
     HeaderComponent,
     CampSearchComponent,
-    CampCardComponent
+    CampCardComponent,
+    CampSearchContainerComponent
   ],
   imports: [
     BrowserModule,

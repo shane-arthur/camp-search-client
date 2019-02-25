@@ -1,5 +1,5 @@
 export interface Activities {
-    data: Array<Activity>;
+    data: Activity[];
 }
 
 export interface Activity {

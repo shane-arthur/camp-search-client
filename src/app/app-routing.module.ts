@@ -3,13 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
-import { CampSearchComponent } from './components/camp-search/camp-search.component';
 import { CampCardComponent } from './components/camp-card/camp-card.component';
+import { CampSearchContainerComponent } from './containers/camp-search/camp-search.container';
 
 const appRoutes: Routes = [
   {
     path: 'camp-search',
-    component: CampSearchComponent
+    component: CampSearchContainerComponent
   },
   {
     path: 'camp/:id',

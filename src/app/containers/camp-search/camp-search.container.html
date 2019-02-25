@@ -1,0 +1,6 @@
+<ng-container *ngIf="activities && activities.length > 0; else noResults">
+    <app-camp-search [activities]="activities"></app-camp-search>
+</ng-container>
+<ng-template #noResults>
+    <h1 style="margin: 0 auto;padding:1rem">No Camps available for search criteria</h1>
+</ng-template>
