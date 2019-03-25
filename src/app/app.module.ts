@@ -51,6 +51,8 @@ import {
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// Google maps
+import { AgmCoreModule } from '@agm/core';
 // components
 import { HeaderComponent } from './components/header/header.component';
 import { CampSearchComponent } from './components/camp-search/camp-search.component';
@@ -153,6 +155,9 @@ export class MaterialModule { }
       camps: campReducer.reducer
     }),
     EffectsModule.forRoot([SearchEffects, ActivitiesEffects]),
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_KEY'
+    })
   ],
   providers: [Store, Actions, HttpHelperService],
   bootstrap: [AppComponent]

@@ -1,6 +1,18 @@
-<ng-container *ngIf="activities && activities.length > 0; else noResults">
-    <app-camp-search [activities]="activities"></app-camp-search>
-</ng-container>
-<ng-template #noResults>
-    <h1 style="margin: 0 auto;padding:1rem">No Camps available for search criteria</h1>
-</ng-template>
+
+<!-- <ng-container *ngIf="!loading; else loading"> -->
+    <ng-container *ngIf="activities && activities.length > 0; else noResults">
+        <app-camp-search [activities]="activities"></app-camp-search>
+        <!-- this creates a google map on the page with the given lat/lng from -->
+        <!-- the component as the initial center of the map: -->
+        <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="choseLocation($event)">
+            <agm-marker *ngIf="userSelectedLocation" [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+    </ng-container>
+    <ng-template #noResults>
+        <h1 style="margin: 0 auto;padding:1rem">No Camps available for search criteria</h1>
+        <div class="lds-dual-ring"></div>
+    </ng-template>
+<!-- </ng-container>
+<ng-template #loading>
+    <div class="lds-dual-ring"></div>
+</ng-template> -->

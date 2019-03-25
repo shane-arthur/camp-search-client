@@ -30,6 +30,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
 }
 
 export const metaReducers: MetaReducer<State>[] = [localStorageSyncReducer];
+export const searchLoading = (state: any): boolean => state.search.search.loading;
 export const getSearch = (state: any): SearchDetails => state.search.search.searchDetails;
 export const getActivities = (state: any): Activity[] => state.activity.activity.activities;
 
