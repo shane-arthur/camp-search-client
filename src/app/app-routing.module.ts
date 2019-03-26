@@ -20,7 +20,7 @@ const appRoutes: Routes = [
     path: '',
     component: LandingPageComponent
   },
-  { path: '*', redirectTo: '/LandingPageComponent', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
