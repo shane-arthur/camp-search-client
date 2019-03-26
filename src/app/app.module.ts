@@ -14,7 +14,7 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PlatformModule } from '@angular/cdk/platform';
 import { PortalModule } from '@angular/cdk/portal';
-import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CdkTableModule } from '@angular/cdk/table';
 import {
@@ -47,7 +47,8 @@ import {
   MatTooltipModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatSpinner
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -57,6 +58,7 @@ import { AgmCoreModule } from '@agm/core';
 import { HeaderComponent } from './components/header/header.component';
 import { CampSearchComponent } from './components/camp-search/camp-search.component';
 import { CampCardComponent} from './components/camp-card/camp-card.component';
+import { LandingPageComponent } from './pages/landing.page';
 
 // containers
 import { CampSearchContainerComponent } from './containers/camp-search/camp-search.container';
@@ -90,7 +92,7 @@ import { Store } from '@ngrx/store';
     OverlayModule,
     PlatformModule,
     PortalModule,
-    ScrollDispatchModule,
+    ScrollingModule,
     CdkStepperModule,
     CdkTableModule,
 
@@ -115,6 +117,7 @@ import { Store } from '@ngrx/store';
     MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
+    MatProgressSpinnerModule,
     MatSlideToggleModule,
     MatSliderModule,
     MatSnackBarModule,
@@ -134,7 +137,8 @@ export class MaterialModule { }
     HeaderComponent,
     CampSearchComponent,
     CampCardComponent,
-    CampSearchContainerComponent
+    CampSearchContainerComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

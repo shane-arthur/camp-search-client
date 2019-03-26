@@ -22,4 +22,19 @@ animation: lds-dual-ring 1.2s linear infinite;
     transform: rotate(360deg);
 }
 }
+
+div{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+h1{
+    margin-top: 10% !important;
+}
+
+.spinner-container{
+    margin-top: 20%;
+}
   

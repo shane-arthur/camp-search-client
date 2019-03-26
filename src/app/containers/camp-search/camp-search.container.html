@@ -1,5 +1,4 @@
-
-<!-- <ng-container *ngIf="!loading; else loading"> -->
+<ng-container *ngIf="!isLoading; else loading">
     <ng-container *ngIf="activities && activities.length > 0; else noResults">
         <app-camp-search [activities]="activities"></app-camp-search>
         <!-- this creates a google map on the page with the given lat/lng from -->
@@ -9,10 +8,13 @@
         </agm-map>
     </ng-container>
     <ng-template #noResults>
-        <h1 style="margin: 0 auto;padding:1rem">No Camps available for search criteria</h1>
-        <div class="lds-dual-ring"></div>
+        <div>
+            <h1 style="margin: 0 auto;padding:1rem">No Camps available for search criteria</h1>
+        </div>
     </ng-template>
-<!-- </ng-container>
+</ng-container>
 <ng-template #loading>
-    <div class="lds-dual-ring"></div>
-</ng-template> -->
+    <div class="spinner-container">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

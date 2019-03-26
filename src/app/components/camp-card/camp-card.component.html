@@ -1,29 +1,31 @@
 <ng-container *ngIf="campDetails$ | async as campDetails">
-    <mat-card (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-        <mat-card-content>
-            <img mat-card-image src="assets/core-assets/images/background.jpg" alt="Photo of a Shiba Inu">
-            <div class="header-container">
-                <h1> {{campDetails['_source'].campname}}</h1>
-            </div>
-            <div class="line"></div>
-            <div class="address">{{campDetails['_source']['address_line1']}}, {{campDetails['_source']['city']}},
-                {{campDetails['_source']['province']}}</div>
-            <div *ngIf="showWebsite" class="website-container">
-                <label>Website: </label> <a (click)="goToWebsite(campDetails)"
-                    href="javascript:void(0)">{{campDetails['_source']['website']}}</a>
-                <div *ngIf="campDetails['_source']['phone']" class="phone-container" style="display:block">
-                    <label>Phone: </label> <span style="color: orange"> {{campDetails['_source']['phone']}}</span>
+    <div>
+        <mat-card (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+            <mat-card-content>
+                <img mat-card-image src="assets/core-assets/images/background.jpg" alt="Photo of a Shiba Inu">
+                <div class="header-container">
+                    <h1> {{campDetails['_source'].campname}}</h1>
                 </div>
-            </div>
-            <div class="footer-container">
+                <div class="line"></div>
+                <div class="address">{{campDetails['_source']['address_line1']}}, {{campDetails['_source']['city']}},
+                    {{campDetails['_source']['province']}}</div>
+                <div *ngIf="showWebsite" class="website-container">
+                    <label>Website: </label> <a (click)="goToWebsite(campDetails)"
+                        href="javascript:void(0)">{{campDetails['_source']['website']}}</a>
+                    <div *ngIf="campDetails['_source']['phone']" class="phone-container" style="display:block">
+                        <label>Phone: </label> <span style="color: orange"> {{campDetails['_source']['phone']}}</span>
+                    </div>
+                </div>
+                <div class="footer-container">
 
-                <mat-icon>calendar_today</mat-icon>
-                <span> {{campDetails['_source']['@timestamp'].split('T')[0]}}</span>
+                    <mat-icon>calendar_today</mat-icon>
+                    <span> {{campDetails['_source']['@timestamp'].split('T')[0]}}</span>
 
-                <mat-icon>email</mat-icon>
-                <span>{{campDetails['_source']['email']}}</span>
+                    <mat-icon>email</mat-icon>
+                    <span>{{campDetails['_source']['email']}}</span>
 
-            </div>
-        </mat-card-content>
-    </mat-card>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </ng-container>

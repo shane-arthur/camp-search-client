@@ -1,0 +1,65 @@
+
+@mixin linear-gradient($from, $to) {
+    background: $to;
+    background: -moz-linear-gradient(top, $from 0%, $to 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $from), color-stop(100%, $to));
+    background: -webkit-linear-gradient(top, $from 0%, $to 100%);
+    background: -o-linear-gradient(top, $from 0%, $to 100%);
+    background: linear-gradient(to bottom, $from 0%, $to 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$from}, endColorstr=#{$to});
+}
+
+@mixin background($image: null) {
+    height: 100%;
+    width: 100%;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    @if $image {
+        background-image: url($image);
+    }
+}
+
+.mat-chip-list{
+    margin-top: 25%;
+}
+
+.mat-chip{
+    font-size: 1.25rem;
+}
+
+mat-chip{
+    padding: 16px 26px;
+    border-radius: 34px;
+    margin: 14px !important;
+}
+
+
+
+.outer-container{
+display: flex;
+justify-content: center;
+font-family: Cantarell;
+color: white;
+font-size: 3rem;
+@include background();
+@include linear-gradient(darkblue, navy );
+span{
+    margin-top: 10%;
+}
+}
+
+.small-text{
+    font-size: 2.5rem;
+}
+
+.text-container{
+    margin-top:10%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+

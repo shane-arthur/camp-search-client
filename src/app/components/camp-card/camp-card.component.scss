@@ -4,9 +4,10 @@ mat-card:hover{
 }
 
 mat-card{
+    margin: 0 auto !important;
     text-align: center;
     font-family: 'Cantarell';
-    top: 50px;
+    top: 75px;
     width: 550px;
     margin-left: 10%;
     display: flex;

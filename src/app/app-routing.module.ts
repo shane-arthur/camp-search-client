@@ -5,6 +5,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { CampCardComponent } from './components/camp-card/camp-card.component';
 import { CampSearchContainerComponent } from './containers/camp-search/camp-search.container';
+import { LandingPageComponent } from './pages/landing.page';
 
 const appRoutes: Routes = [
   {
@@ -15,7 +16,11 @@ const appRoutes: Routes = [
     path: 'camp/:id',
     component: CampCardComponent
   },
-  { path: '*', redirectTo: '/camp-search', pathMatch: 'full' }
+  {
+    path: '',
+    component: LandingPageComponent
+  },
+  { path: '*', redirectTo: '/LandingPageComponent', pathMatch: 'full' }
 ];
 
 @NgModule({

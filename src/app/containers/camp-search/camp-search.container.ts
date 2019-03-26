@@ -16,7 +16,7 @@ export class CampSearchContainerComponent implements OnInit {
   latitude = 51.678418;
   longitude = 7.809007;
   userSelectedLocation = false;
-  loading = false;
+  isLoading = false;
   constructor(private store: Store<reducer.State>) { }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class CampSearchContainerComponent implements OnInit {
         this.activities = response.data;
       }
     });
-    this.store.select(reducer.searchLoading).subscribe((value) => this.loading = value);
+    this.store.select(reducer.searchLoading).subscribe((value) => this.isLoading = value);
   }
 
   choseLocation(event) {
