@@ -63,3 +63,60 @@ span{
     flex-direction: column;
 }
 
+.landing-container {
+    width: 100%;
+    background: #F5F5F5;
+}
+
+.landing-container-row {
+    width: 100%;
+    margin: 0 auto;
+    padding:50px 0;
+    background-color:#fff;
+    // max-width: 62.5rem;
+}
+
+.landing-image {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.landing-panel {
+    padding: 10px 20px;
+    margin: 0 10px;
+    position: relative;
+    top: -70px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.landing-card {
+    width: (1/3) * 100%;
+    position: relative;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    float: left;
+}
+
+.camp-button {
+    font-size: 1rem;
+    padding-top: 0.625rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.6875rem;
+    padding-left: 1.25rem;
+    background-color: #f04124;
+    border-color: #cf2a0e;
+}
+
+.camp-content {
+    margin-bottom: 1.25rem;
+}
+
+.camp-heading {
+    line-height: 1.4;
+    font-size: 1.5rem;
+    color: #B22D00;
+    text-decoration: none;
+    line-height: inherit;
+    margin-bottom: 0.75rem;
+}
